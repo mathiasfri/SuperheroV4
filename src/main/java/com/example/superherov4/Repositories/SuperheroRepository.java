@@ -14,7 +14,7 @@ public class SuperheroRepository {
     // Shows all info about all superheroes
     public List<Superhero> getSuperheroes(){
         List<Superhero> superheroes = new ArrayList<>();
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT * FROM superheroes;";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL1);
@@ -36,7 +36,7 @@ public class SuperheroRepository {
     // Shows all info about a specified superhero
     public List<Superhero> getSuperhero(String name){
         List<Superhero> superheroes = new ArrayList<>();
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT * FROM superheroes WHERE heroName = ?";
             PreparedStatement ps = con.prepareStatement(SQL1);
             ps.setString(1, name);
@@ -59,7 +59,7 @@ public class SuperheroRepository {
     // Shows heroname, realname and amount of superpowers on all superheroes
     public List<SuperheroNumOfPowers> getSuperheroesWithSuperpowerCount(){
         List<SuperheroNumOfPowers> superheroes = new ArrayList<>();
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT heroName, realName, count(*) as numberOfPowers FROM " +
                     "superhero_superpower join superheroes\n" +
                     "on superheroes.superheroID = superhero_superpower.superheroID\n" +
@@ -84,7 +84,7 @@ public class SuperheroRepository {
     // Shows heroname, realname and amount of superpowers on a specified superhero
     public List<SuperheroNumOfPowers> getSuperheroWithSuperpowerCount(String name){
         List<SuperheroNumOfPowers> superheroes = new ArrayList<>();
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT heroName, realName, count(*) as numberOfPowers FROM " +
                     "superhero_superpower join superheroes\n" +
                     "on superheroes.superheroID = superhero_superpower.superheroID\n" +
@@ -111,7 +111,7 @@ public class SuperheroRepository {
     // Shows heroname, realname and superpowers of all superheroes
     public List<SuperheroSuperpower> superheroSuperpowers(){
         List<SuperheroSuperpower> superpowers = new ArrayList<>();
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT heroName, realName, superpower.name AS Superpower FROM " +
                     "superpower join superheroes join superhero_superpower\n" +
                     "on superpower.superpowerID = superhero_superpower.superpowerID\n" +
@@ -135,7 +135,7 @@ public class SuperheroRepository {
     // Shows heroname, realname and superpowers of a specified superhero
     public List<SuperheroSuperpower> superheroSuperpowersSearch(String name){
         List<SuperheroSuperpower> superpowers = new ArrayList<>();
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT heroName, realName, superpower.name AS Superpower FROM superpower join superheroes join superhero_superpower\n" +
                     "on superpower.superpowerID = superhero_superpower.superpowerID\n" +
                     "and superheroes.superheroID = superhero_superpower.superheroID\n" +
@@ -160,7 +160,7 @@ public class SuperheroRepository {
     // Shows heroname and city of all superheroes
     public List<SuperheroCity> superheroCityList(){
         List<SuperheroCity> cities = new ArrayList<>();
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT heroName, city.name AS City FROM city JOIN superheroes JOIN city_superhero\n" +
                     "on city.cityID = city_superhero.cityID\n" +
                     "and superheroes.superheroID = city_superhero.superheroID\n;";
@@ -182,7 +182,7 @@ public class SuperheroRepository {
     // Shows heroname and city of a specified superhero
     public List<SuperheroCity> superheroCitySearch(String name){
         List<SuperheroCity> cities = new ArrayList<>();
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "svGdhj2000#")){
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")){
             String SQL1 = "SELECT heroName, city.name AS City FROM city JOIN superheroes JOIN city_superhero\n" +
                     "on city.cityID = city_superhero.cityID\n" +
                     "and superheroes.superheroID = city_superhero.superheroID\n" +
